@@ -1,0 +1,10 @@
+# Build output
+build/
+
+# macOS
+.DS_Store
+
+# Xcode (if the sources are opened in Xcode)
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+DerivedData/

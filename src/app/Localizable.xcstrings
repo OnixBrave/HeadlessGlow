@@ -1,0 +1,846 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "1 minute": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 minute"
+          }
+        }
+      }
+    },
+    "10 seconds": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "10 secondes"
+          }
+        }
+      }
+    },
+    "30 seconds": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "30 secondes"
+          }
+        }
+      }
+    },
+    "5 minutes": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "5 minutes"
+          }
+        }
+      }
+    },
+    "5 seconds": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "5 secondes"
+          }
+        }
+      }
+    },
+    "Allow Touch Bar brightness keys…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Autoriser les touches de la Touch Bar…"
+          }
+        }
+      }
+    },
+    "Allowed": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Autorisée"
+          }
+        }
+      }
+    },
+    "Available": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disponible"
+          }
+        }
+      }
+    },
+    "Backlight": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rétroéclairage"
+          }
+        }
+      }
+    },
+    "Backlight controller": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contrôleur de rétroéclairage"
+          }
+        }
+      }
+    },
+    "Brightness": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Luminosité"
+          }
+        }
+      }
+    },
+    "Click to record a new shortcut": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cliquez pour enregistrer un nouveau raccourci"
+          }
+        }
+      }
+    },
+    "Controller not found": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contrôleur introuvable"
+          }
+        }
+      }
+    },
+    "Dim to minimum when the display sleeps": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atténuer au minimum quand l’écran se met en veille"
+          }
+        }
+      }
+    },
+    "Dimmed · inactive": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En veille · inactivité"
+          }
+        }
+      }
+    },
+    "General": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Général"
+          }
+        }
+      }
+    },
+    "Hold ⌥⇧ while tapping a brightness control for finer steps, or ⌥ to open these settings.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Maintenez ⌥⇧ en touchant une commande de luminosité pour un réglage plus fin, ou ⌥ pour ouvrir ces réglages."
+          }
+        }
+      }
+    },
+    "If the icon is hidden, open HeadlessGlow from Spotlight or Launchpad to get back to these settings.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Si l’icône est masquée, ouvrez HeadlessGlow depuis Spotlight ou le Launchpad pour retrouver ces réglages."
+          }
+        }
+      }
+    },
+    "Input Monitoring": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Surveillance de l’entrée"
+          }
+        }
+      }
+    },
+    "Keyboard Backlight": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rétroéclairage du clavier"
+          }
+        }
+      }
+    },
+    "Keyboard Brightness": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Luminosité du clavier"
+          }
+        }
+      }
+    },
+    "Keyboard backlight": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rétroéclairage du clavier"
+          }
+        }
+      }
+    },
+    "Keyboard backlight for T2 MacBook Pro": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rétroéclairage du clavier pour MacBook Pro à puce T2"
+          }
+        }
+      }
+    },
+    "Keys and Shortcuts": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Touches et raccourcis"
+          }
+        }
+      }
+    },
+    "Keys inactive": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Touches inactives"
+          }
+        }
+      }
+    },
+    "Link to keyboard brightness": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lier à la luminosité du clavier"
+          }
+        }
+      }
+    },
+    "Linked to keyboard": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Liée au clavier"
+          }
+        }
+      }
+    },
+    "Log": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Journal"
+          }
+        }
+      }
+    },
+    "Never": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jamais"
+          }
+        }
+      }
+    },
+    "None": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun"
+          }
+        }
+      }
+    },
+    "Not found": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Introuvable"
+          }
+        }
+      }
+    },
+    "Off": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Éteint"
+          }
+        }
+      }
+    },
+    "Off · display asleep": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Éteint · écran en veille"
+          }
+        }
+      }
+    },
+    "On": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Allumé"
+          }
+        }
+      }
+    },
+    "On · %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Allumé · %@"
+          }
+        }
+      }
+    },
+    "Open Settings…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir les Réglages…"
+          }
+        }
+      }
+    },
+    "Open at login": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ouvrir à l’ouverture de session"
+          }
+        }
+      }
+    },
+    "Quit HeadlessGlow": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quitter HeadlessGlow"
+          }
+        }
+      }
+    },
+    "Remove shortcut": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supprimer le raccourci"
+          }
+        }
+      }
+    },
+    "Required": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Requise"
+          }
+        }
+      }
+    },
+    "Shortcut already used by another app": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Raccourci déjà utilisé par une autre app"
+          }
+        }
+      }
+    },
+    "Show in Console…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher dans Console…"
+          }
+        }
+      }
+    },
+    "Show in menu bar": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher dans la barre des menus"
+          }
+        }
+      }
+    },
+    "Show on-screen indicator": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Afficher l’indicateur à l’écran"
+          }
+        }
+      }
+    },
+    "Space": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Espace"
+          }
+        }
+      }
+    },
+    "Status": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "État"
+          }
+        }
+      }
+    },
+    "T2 chip": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Puce T2"
+          }
+        }
+      }
+    },
+    "The Touch Bar follows the keyboard level, but stays on when the keyboard is off.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La Touch Bar suit le niveau du clavier, mais reste allumée quand le clavier est éteint."
+          }
+        }
+      }
+    },
+    "The backlight comes back on as soon as you use the keyboard, trackpad or mouse.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le rétroéclairage se rallume dès que vous utilisez le clavier, le trackpad ou la souris."
+          }
+        }
+      }
+    },
+    "Touch Bar": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Touch Bar"
+          }
+        }
+      }
+    },
+    "Touch Bar Brightness": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Luminosité de la Touch Bar"
+          }
+        }
+      }
+    },
+    "Touch Bar brightness controls": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Commandes de luminosité de la Touch Bar"
+          }
+        }
+      }
+    },
+    "Touch Bar brightness, or link it to the keyboard level": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "luminosité de la Touch Bar, ou liaison au niveau du clavier"
+          }
+        }
+      }
+    },
+    "Touch Bar control": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réglage de la Touch Bar"
+          }
+        }
+      }
+    },
+    "Touch Bar: %@, currently %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Touch Bar : %@, actuellement %@"
+          }
+        }
+      }
+    },
+    "Touch Bar: %@, currently %@ (dimmed by macOS)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Touch Bar : %@, actuellement %@ (atténuée par macOS)"
+          }
+        }
+      }
+    },
+    "Turn Off Automatically": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Extinction automatique"
+          }
+        }
+      }
+    },
+    "Turn backlight off": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Éteindre le rétroéclairage"
+          }
+        }
+      }
+    },
+    "Turn backlight on": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Allumer le rétroéclairage"
+          }
+        }
+      }
+    },
+    "Turn off after inactivity": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Éteindre après une période d’inactivité"
+          }
+        }
+      }
+    },
+    "Turn off when the display sleeps": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Éteindre lorsque l’écran se met en veille"
+          }
+        }
+      }
+    },
+    "Turn on or off": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Allumer ou éteindre"
+          }
+        }
+      }
+    },
+    "Type shortcut…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tapez le raccourci…"
+          }
+        }
+      }
+    },
+    "Type the key combination (⎋ to cancel)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tapez la combinaison voulue (⎋ pour annuler)"
+          }
+        }
+      }
+    },
+    "Without a command, opens the settings.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sans commande, ouvre les réglages."
+          }
+        }
+      }
+    },
+    "Without an ambient light sensor, the Touch Bar can't get brighter than its current level: this setting can only dim it.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sans capteur de lumière, la Touch Bar ne peut pas dépasser sa luminosité actuelle : ce réglage permet seulement de l’atténuer."
+          }
+        }
+      }
+    },
+    "backlight interface (05AC:8102) not found": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "interface de rétroéclairage (05AC:8102) introuvable"
+          }
+        }
+      }
+    },
+    "backlight: %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "rétroéclairage : %@"
+          }
+        }
+      }
+    },
+    "chosen level: %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "niveau choisi : %@"
+          }
+        }
+      }
+    },
+    "communication with the controller failed": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "échec de communication avec le contrôleur"
+          }
+        }
+      }
+    },
+    "HeadlessGlow": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HeadlessGlow"
+          }
+        }
+      }
+    },
+    "HeadlessGlow %@ · drives the T2 controller directly, without modifying the system.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HeadlessGlow %@ · pilote directement le contrôleur du T2, sans modifier le système."
+          }
+        }
+      }
+    },
+    "HeadlessGlow Settings…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réglages de HeadlessGlow…"
+          }
+        }
+      }
+    },
+    "level programmed in the T2: %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "niveau programmé dans le T2 : %@"
+          }
+        }
+      }
+    },
+    "linked to keyboard": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "liée au clavier"
+          }
+        }
+      }
+    },
+    "off": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "éteint"
+          }
+        }
+      }
+    },
+    "on": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "allumé"
+          }
+        }
+      }
+    },
+    "re-read the settings (after `defaults write io.github.onixbrave.headlessglow …`)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "relit les réglages (après un `defaults write io.github.onixbrave.headlessglow …`)"
+          }
+        }
+      }
+    },
+    "set the level in percent (0 turns it off)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "règle le niveau en pourcentage (0 éteint)"
+          }
+        }
+      }
+    },
+    "set to %@": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "réglée à %@"
+          }
+        }
+      }
+    },
+    "show the backlight status": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "affiche l’état du rétroéclairage"
+          }
+        }
+      }
+    },
+    "toggle on / off": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "bascule allumé / éteint"
+          }
+        }
+      }
+    },
+    "turn on / off (the level is kept)": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "allume / éteint (le niveau est conservé)"
+          }
+        }
+      }
+    },
+    "usage: headlessglow <command>": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "usage : headlessglow <commande>"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}
