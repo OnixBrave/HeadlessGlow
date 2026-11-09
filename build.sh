@@ -9,7 +9,7 @@ source "$ROOT/tools/lang.zsh"
 BUILD="$ROOT/build"
 APP="$BUILD/HeadlessGlow.app"
 OBJ="$BUILD/obj"
-VERSION="${HEADLESSGLOW_VERSION:-1.0}"   # set by the release workflow from the git tag
+VERSION="${HEADLESSGLOW_VERSION:-1.1}"   # set by the release workflow from the git tag
 TARGET="x86_64-apple-macos13.0"   # runs on macOS 13 Ventura and later
 
 if [[ -z "${DEVELOPER_DIR:-}" && -d /Applications/Xcode.app ]]; then

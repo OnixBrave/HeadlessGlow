@@ -5,12 +5,12 @@
 #       HeadlessGlow.app   install.sh   uninstall.sh   tools/lang.zsh
 #       README.md   README.fr.md   LICENSE
 # The version comes from HEADLESSGLOW_VERSION (set from the git tag by the
-# release workflow), 1.0 by default.
+# release workflow), 1.1 by default.
 set -euo pipefail
 
 ROOT="${0:A:h:h}"
 source "$ROOT/tools/lang.zsh"
-VERSION="${HEADLESSGLOW_VERSION:-1.0}"
+VERSION="${HEADLESSGLOW_VERSION:-1.1}"
 NAME="HeadlessGlow-$VERSION"
 DIST="$ROOT/dist"
 STAGE="$DIST/$NAME"
