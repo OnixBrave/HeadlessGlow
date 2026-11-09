@@ -2,9 +2,9 @@ name: Build
 
 # Builds the app with Xcode 26, smoke-tests it on the macOS versions GitHub offers
 # on free Intel runners (the architecture of T2 Macs: macOS 15 and 26), and
-# publishes a release when a version tag (v1.0, v1.1…) is pushed. The virtual machines have no T2 chip, so
-# the tests check that the app launches and behaves correctly without it; the
-# hardware itself can only be tested on a real Mac.
+# publishes a release when a version tag (v1.0, v1.1…) is pushed. The virtual
+# machines have no T2 chip, so the tests check that the app launches and behaves
+# correctly without it; the hardware itself can only be tested on a real Mac.
 
 on:
   push:

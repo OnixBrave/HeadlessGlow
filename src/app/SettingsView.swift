@@ -60,6 +60,7 @@ struct SettingsView: View {
                     }
                 }
                 .foregroundStyle(.secondary)
+                .frame(maxWidth: .infinity, alignment: .leading)   // leading on every macOS version
             }
 
             Section {
@@ -74,6 +75,7 @@ struct SettingsView: View {
             } footer: {
                 Text("The backlight comes back on as soon as you use the keyboard, trackpad or mouse.")
                     .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)   // leading on every macOS version
             }
 
             Section {
@@ -94,6 +96,7 @@ struct SettingsView: View {
             } footer: {
                 Text("Hold ⌥⇧ while tapping a brightness control for finer steps, or ⌥ to open these settings.")
                     .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)   // leading on every macOS version
             }
 
             Section {
@@ -105,6 +108,7 @@ struct SettingsView: View {
             } footer: {
                 Text("If the icon is hidden, open HeadlessGlow from Spotlight or Launchpad to get back to these settings.")
                     .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)   // leading on every macOS version
             }
 
             Section {
@@ -140,6 +144,7 @@ struct SettingsView: View {
             } footer: {
                 Text("HeadlessGlow \(AppEnv.version) · drives the T2 controller directly, without modifying the system.")
                     .foregroundStyle(.tertiary)
+                    .frame(maxWidth: .infinity, alignment: .leading)   // leading on every macOS version
             }
         }
         .formStyle(.grouped)
