@@ -44,7 +44,7 @@ Wer das Display eines MacBook Pro mit T2-Chip entfernt, entfernt auch den Umgebu
 - Abdunkeln der Touch Bar, optional an die Tastaturhelligkeit gekoppelt
 - Menüleistenfenster, Einstellungsfenster und Bildschirmanzeige
 - Befehlszeilenwerkzeug `headlessglow`
-- Oberfläche auf Englisch und Französisch
+- Mehrsprachig
 
 ## Kompatibilität
 

@@ -44,7 +44,7 @@ Remover a tela de um MacBook Pro com chip T2 também remove o sensor de luz ambi
 - Escurecimento da Touch Bar, opcionalmente vinculado ao nível do teclado
 - Painel na barra de menus, janela de ajustes e indicador na tela
 - Ferramenta de linha de comando `headlessglow`
-- Interface em inglês e francês
+- Multilíngue
 
 ## Compatibilidade
 

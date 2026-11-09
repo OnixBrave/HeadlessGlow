@@ -44,7 +44,7 @@ Retirer l’écran d’un MacBook Pro à puce T2 retire aussi le capteur de lumi
 - Atténuation de la Touch Bar, éventuellement liée au niveau du clavier
 - Panneau dans la barre des menus, fenêtre de réglages et indicateur à l’écran
 - Commande `headlessglow` pour le Terminal
-- En français et en anglais
+- Multilingue
 
 ## Compatibilité
 

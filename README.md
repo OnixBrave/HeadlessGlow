@@ -44,7 +44,7 @@ Removing the display of a T2 MacBook Pro also removes the ambient light sensor, 
 - Touch Bar dimming, optionally linked to the keyboard level
 - Menu bar panel, settings window and on-screen indicator
 - `headlessglow` command line tool
-- English and French
+- Multilingual
 
 ## Compatibility
 

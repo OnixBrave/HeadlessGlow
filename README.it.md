@@ -44,7 +44,7 @@ Rimuovendo lo schermo di un MacBook Pro con chip T2 si rimuove anche il sensore 
 - Attenuazione della Touch Bar, facoltativamente collegata al livello della tastiera
 - Pannello nella barra dei menu, finestra delle impostazioni e indicatore a schermo
 - Strumento da riga di comando `headlessglow`
-- Interfaccia in inglese e francese
+- Multilingue
 
 ## Compatibilità
 
