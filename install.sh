@@ -1,5 +1,7 @@
 #!/bin/zsh
-# Builds and installs HeadlessGlow for the current user (no sudo, nothing outside $HOME).
+# Installs HeadlessGlow for the current user (no sudo, nothing outside $HOME).
+# Run from the source code, it builds the app first (Xcode 26 needed); run from a
+# release package, it installs the prebuilt HeadlessGlow.app found next to it.
 #   ./install.sh [level 0-100]
 #
 # - app      : ~/Applications/HeadlessGlow.app (Spotlight, Launchpad)
@@ -25,8 +27,14 @@ LOG="$HOME/Library/Logs/HeadlessGlow.log"
 LSREGISTER=/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister
 DOMAIN="gui/$(id -u)"
 
-"$ROOT/build.sh"
-BUILT="$ROOT/build/HeadlessGlow.app"
+if [[ -d "$ROOT/HeadlessGlow.app" ]]; then
+    BUILT="$ROOT/HeadlessGlow.app"   # release package
+    PREBUILT=1
+else
+    "$ROOT/build.sh"
+    BUILT="$ROOT/build/HeadlessGlow.app"
+    PREBUILT=0
+fi
 
 # Code identity (designated requirement): this is what macOS remembers along
 # with the permission. Stable with the local certificate, different on every ad hoc build.
@@ -44,6 +52,13 @@ say "→ installation dans ~/Applications" "→ installing to ~/Applications"
 mkdir -p "$HOME/Applications" "$HOME/.local/bin" "$HOME/Library/LaunchAgents" "$HOME/Library/Logs"
 rm -rf "$DEST"
 ditto "$BUILT" "$DEST"
+if (( PREBUILT )); then
+    # A downloaded app carries the quarantine flag; as it isn't notarized, macOS
+    # would refuse to start it at login. You chose to install it: remove the flag.
+    xattr -dr com.apple.quarantine "$DEST" 2>/dev/null || true
+    say "  app téléchargée : attribut de quarantaine retiré (l'app n'est pas notarisée)" \
+        "  downloaded app: quarantine flag removed (the app isn't notarized)"
+fi
 "$LSREGISTER" -f "$DEST" 2>/dev/null || true
 # A wrapper script rather than a symlink: run from its real path, the binary
 # finds the app bundle (and therefore its translations).

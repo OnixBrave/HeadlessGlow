@@ -8,3 +8,4 @@ build/
 *.xcodeproj/xcuserdata/
 *.xcworkspace/xcuserdata/
 DerivedData/
+dist/

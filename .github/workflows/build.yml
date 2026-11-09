@@ -1,0 +1,128 @@
+name: Build
+
+# Builds the app with Xcode 26, smoke-tests it on every macOS version GitHub
+# offers on Intel (the architecture of T2 Macs), and publishes a release when a
+# version tag (v1.0, v1.1…) is pushed. The virtual machines have no T2 chip, so
+# the tests check that the app launches and behaves correctly without it; the
+# hardware itself can only be tested on a real Mac.
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build (Xcode 26)
+    runs-on: macos-26-intel
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Toolchain
+        run: |
+          sw_vers
+          xcodebuild -version
+          echo "SDK $(xcrun --sdk macosx --show-sdk-version)"
+
+      - name: Build and package
+        run: |
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+            export HEADLESSGLOW_VERSION="${GITHUB_REF_NAME#v}"
+          else
+            export HEADLESSGLOW_VERSION="0.0-dev.${GITHUB_SHA::7}"
+          fi
+          ./tools/package.sh
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: package
+          path: dist/*.zip
+          if-no-files-found: error
+
+  smoke-test:
+    name: Smoke test (${{ matrix.os }})
+    needs: build
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-14, macos-15-intel, macos-26-intel]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: package
+
+      - name: Unpack
+        run: ditto -x -k HeadlessGlow-*.zip .
+
+      - name: Tests
+        run: |
+          set -euo pipefail
+          sw_vers
+          APP=$(echo HeadlessGlow-*/HeadlessGlow.app)
+          BIN="$APP/Contents/MacOS/HeadlessGlow"
+
+          echo "::group::Signature and minimum system version"
+          codesign --verify --strict "$APP"
+          /usr/libexec/PlistBuddy -c "Print LSMinimumSystemVersion" "$APP/Contents/Info.plist"
+          echo "::endgroup::"
+
+          echo "::group::Command line"
+          "$BIN" help | tee help.txt
+          grep -q "usage: headlessglow" help.txt
+          # No T2 chip in a virtual machine: `get` must fail cleanly.
+          if "$BIN" get 2> get.txt; then echo "get unexpectedly succeeded"; exit 1; fi
+          cat get.txt
+          grep -q "not found" get.txt
+          echo "::endgroup::"
+
+          echo "::group::Background service starts and keeps running"
+          "$BIN" daemon &
+          PID=$!
+          sleep 8
+          kill -0 "$PID"
+          kill -TERM "$PID"
+          wait "$PID" || true
+          echo "::endgroup::"
+
+          echo "::group::UI screenshots"
+          "$BIN" --snapshot shots/en -AppleLanguages '(en)' -AppleLocale en_US
+          "$BIN" --snapshot shots/fr -AppleLanguages '(fr)' -AppleLocale fr_FR
+          ls -la shots/en shots/fr
+          echo "::endgroup::"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots-${{ matrix.os }}
+          path: shots/
+          if-no-files-found: ignore
+
+  release:
+    name: Release
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: smoke-test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: package
+
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          ZIP="HeadlessGlow-$VERSION.zip"
+          SHA=$(sha256sum "$ZIP" | cut -d' ' -f1)
+          sed -e "s/{{VERSION}}/$VERSION/g" -e "s/{{SHA256}}/$SHA/g" .github/release-notes.md > notes.md
+          gh release create "$GITHUB_REF_NAME" "$ZIP" --title "HeadlessGlow $VERSION" --notes-file notes.md

@@ -12,7 +12,7 @@ source "$ROOT/tools/lang.zsh"
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
 
-xcrun swiftc -swift-version 5 -target x86_64-apple-macos26.0 -wmo -module-name HeadlessGlow \
+xcrun swiftc -swift-version 5 -target x86_64-apple-macos13.0 -wmo -module-name HeadlessGlow \
     -import-objc-header "$ROOT/src/core/kbhw.h" "$ROOT"/src/app/*.swift \
     -c -o "$TMP/app.o" -emit-localized-strings -emit-localized-strings-path "$TMP"
 xcrun xcstringstool sync "$ROOT/src/app/Localizable.xcstrings" --stringsdata "$TMP"/*.stringsdata

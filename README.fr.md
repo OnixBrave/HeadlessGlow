@@ -9,6 +9,10 @@
   <a href="README.md">English</a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/OnixBrave/HeadlessGlow/actions/workflows/build.yml"><img src="https://github.com/OnixBrave/HeadlessGlow/actions/workflows/build.yml/badge.svg" alt="Build"></a>
+</p>
+
 ---
 
 ## Pourquoi
@@ -42,13 +46,30 @@ HeadlessGlow s’adresse directement à la puce T2 pour rallumer le rétroéclai
   </picture>
 </p>
 
-## Configuration requise
+## Compatibilité
 
-- Un **MacBook Pro Intel à puce T2** (2018–2020). Testé sur un MacBookPro16,1 (16 pouces, 2019). Les autres MacBook Pro T2 exposent très probablement la même interface : les retours sont bienvenus.
-- **macOS 26 Tahoe**.
-- **Xcode 26** pour compiler (le SDK macOS 26 est nécessaire). Il n’a pas besoin d’être le Xcode sélectionné : le script utilise directement `/Applications/Xcode.app`.
+Un **MacBook Pro Intel à puce T2** (2018–2020) sous **macOS 13 Ventura ou plus récent**.
+
+| macOS | État |
+|---|---|
+| 26 Tahoe | Testé sur un vrai Mac (MacBookPro16,1, 16 pouces 2019) |
+| 15 Sequoia, 14 Sonoma | [Tests de lancement automatiques](https://github.com/OnixBrave/HeadlessGlow/actions/workflows/build.yml) réussis ; pas encore testé sur un vrai Mac |
+| 13 Ventura | Compilé pour lui ; non testé |
+
+Les autres MacBook Pro T2 exposent très probablement la même interface. Si vous essayez HeadlessGlow sur une configuration non testée, merci d’[ouvrir une issue](https://github.com/OnixBrave/HeadlessGlow/issues) pour dire si ça fonctionne.
 
 ## Installation
+
+### Depuis une release (sans Xcode)
+
+1. Téléchargez le dernier `HeadlessGlow-<version>.zip` sur la [page des releases](https://github.com/OnixBrave/HeadlessGlow/releases) et ouvrez-le.
+2. Dans le Terminal : `cd ~/Downloads/HeadlessGlow-<version> && ./install.sh`
+
+L’app n’est pas notarisée (il faudrait un compte développeur Apple payant) : `install.sh` retire donc l’attribut de quarantaine de l’app qu’il installe, sans quoi macOS refuserait de la lancer. Avec une release, macOS redemande l’autorisation « Surveillance de l’entrée » après chaque mise à jour.
+
+### Depuis le code source
+
+Nécessite **Xcode 26** (le SDK macOS 26 donne à l’app l’apparence de Tahoe ; elle fonctionne quand même dès macOS 13). Il n’a pas besoin d’être le Xcode sélectionné : le script utilise directement `/Applications/Xcode.app`.
 
 ```sh
 git clone https://github.com/OnixBrave/HeadlessGlow.git
@@ -57,7 +78,9 @@ cd HeadlessGlow
 ./install.sh               # compile et installe pour l’utilisateur courant
 ```
 
-Autorisez ensuite **HeadlessGlow** dans *Réglages Système → Confidentialité et sécurité → Surveillance de l’entrée*. Ce n’est utile que pour les touches de luminosité de la Touch Bar : HeadlessGlow les écoute **en lecture seule** et ne voit ni ne modifie rien d’autre de ce que vous tapez. L’app se relance d’elle-même une fois l’autorisation accordée.
+### Ensuite
+
+Autorisez **HeadlessGlow** dans *Réglages Système → Confidentialité et sécurité → Surveillance de l’entrée*. Ce n’est utile que pour les touches de luminosité de la Touch Bar : HeadlessGlow les écoute **en lecture seule** et ne voit ni ne modifie rien d’autre de ce que vous tapez. L’app se relance d’elle-même une fois l’autorisation accordée.
 
 Tout est installé dans votre dossier personnel, sans `sudo` :
 
@@ -118,7 +141,7 @@ Le script retire l’app, la commande, le service, les réglages, l’autorisati
 
 ## Développement
 
-- `./build.sh` compile `build/HeadlessGlow.app`. Avec `HEADLESSGLOW_DEBUG_BUILD=1`, la version produite est inspectable avec `heap`, `leaks` et `malloc_history`.
+- `./build.sh` compile `build/HeadlessGlow.app` ; `./tools/package.sh` crée le zip de release dans `dist/`. Pousser une étiquette `v*` compile, teste et publie une release via GitHub Actions. Avec `HEADLESSGLOW_DEBUG_BUILD=1`, la version produite est inspectable avec `heap`, `leaks` et `malloc_history`.
 - `./tools/update-strings.sh` synchronise le catalogue de traductions (`src/app/Localizable.xcstrings`) avec le code, comme Xcode, et liste les traductions françaises manquantes.
 - `headlessglow --snapshot <dossier>` enregistre les fenêtres de l’app en PNG (ajoutez `-AppleLanguages '(en)'` pour l’anglais).
 - `src/core/kbhw.c` contient l’accès au matériel en C ; l’app elle-même est en Swift et SwiftUI.

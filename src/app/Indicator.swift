@@ -102,11 +102,22 @@ struct IndicatorView: View {
             Image(systemName: model.level > 0 ? "light.max" : "light.min")
                 .font(.system(size: 17, weight: .semibold))
                 .frame(width: 24)
-                .contentTransition(.symbolEffect(.replace))
+                .modifier(SymbolReplaceTransition())
             LevelBar(level: model.level)
         }
         .padding(.horizontal, 18)
         .frame(width: Indicator.size.width, height: Indicator.size.height)
+    }
+}
+
+/// Animated symbol swap on macOS 14 and later; a plain swap on macOS 13.
+private struct SymbolReplaceTransition: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(macOS 14.0, *) {
+            content.contentTransition(.symbolEffect(.replace))
+        } else {
+            content
+        }
     }
 }
 

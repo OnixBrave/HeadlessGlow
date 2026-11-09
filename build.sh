@@ -1,6 +1,7 @@
 #!/bin/zsh
-# Builds HeadlessGlow.app into ./build. Requires Xcode 26 (macOS 26 SDK);
-# does not change the global selection (xcode-select).
+# Builds HeadlessGlow.app into ./build. Requires Xcode 26 (macOS 26 SDK, for the
+# Tahoe look); the app itself runs on macOS 13 Ventura and later. Does not change
+# the global Xcode selection (xcode-select).
 set -euo pipefail
 
 ROOT="${0:A:h}"
@@ -8,8 +9,8 @@ source "$ROOT/tools/lang.zsh"
 BUILD="$ROOT/build"
 APP="$BUILD/HeadlessGlow.app"
 OBJ="$BUILD/obj"
-VERSION="1.0"
-TARGET="x86_64-apple-macos26.0"
+VERSION="${HEADLESSGLOW_VERSION:-1.0}"   # set by the release workflow from the git tag
+TARGET="x86_64-apple-macos13.0"   # runs on macOS 13 Ventura and later
 
 if [[ -z "${DEVELOPER_DIR:-}" && -d /Applications/Xcode.app ]]; then
     export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
@@ -38,7 +39,7 @@ xcrun xcstringstool compile "$ROOT/src/app/Localizable.xcstrings" --output-direc
 
 say "→ icône" "→ icon"
 if [[ ! -f "$OBJ/AppIcon.icns" || "$ROOT/tools/make-icon.swift" -nt "$OBJ/AppIcon.icns" ]]; then
-    xcrun swiftc -O -target "$TARGET" "$ROOT/tools/make-icon.swift" -o "$OBJ/make-icon"
+    xcrun swiftc -O "$ROOT/tools/make-icon.swift" -o "$OBJ/make-icon"   # build tool: host architecture
     rm -rf "$OBJ/AppIcon.iconset"
     "$OBJ/make-icon" "$OBJ/AppIcon.iconset"
     iconutil -c icns "$OBJ/AppIcon.iconset" -o "$OBJ/AppIcon.icns"
@@ -60,7 +61,7 @@ cat > "$APP/Contents/Info.plist" <<EOF
     <key>CFBundleVersion</key>              <string>$VERSION</string>
     <key>CFBundleDevelopmentRegion</key>    <string>en</string>
     <key>CFBundleLocalizations</key>        <array><string>en</string><string>fr</string></array>
-    <key>LSMinimumSystemVersion</key>       <string>26.0</string>
+    <key>LSMinimumSystemVersion</key>       <string>13.0</string>
     <key>LSApplicationCategoryType</key>    <string>public.app-category.utilities</string>
     <key>LSUIElement</key>                  <true/>
     <key>NSHumanReadableCopyright</key>     <string>Keyboard backlight for T2 MacBook Pro</string>

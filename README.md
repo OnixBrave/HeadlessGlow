@@ -9,6 +9,10 @@
   <a href="README.fr.md">Français</a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/OnixBrave/HeadlessGlow/actions/workflows/build.yml"><img src="https://github.com/OnixBrave/HeadlessGlow/actions/workflows/build.yml/badge.svg" alt="Build"></a>
+</p>
+
 ---
 
 ## Why
@@ -42,13 +46,30 @@ HeadlessGlow talks directly to the T2 chip to bring the backlight back, and adds
   </picture>
 </p>
 
-## Requirements
+## Compatibility
 
-- An **Intel MacBook Pro with a T2 chip** (2018–2020). Tested on a MacBookPro16,1 (16-inch, 2019). Other T2 MacBook Pros most likely expose the same interface: reports are welcome.
-- **macOS 26 Tahoe**.
-- **Xcode 26** to build (the macOS 26 SDK is required). It doesn't need to be the selected Xcode: the build script uses `/Applications/Xcode.app` directly.
+An **Intel MacBook Pro with a T2 chip** (2018–2020) running **macOS 13 Ventura or later**.
+
+| macOS | Status |
+|---|---|
+| 26 Tahoe | Tested on real hardware (MacBookPro16,1, 16-inch 2019) |
+| 15 Sequoia, 14 Sonoma | [Automated launch tests](https://github.com/OnixBrave/HeadlessGlow/actions/workflows/build.yml) pass; not yet tested on real hardware |
+| 13 Ventura | Builds for it; not tested |
+
+Other T2 MacBook Pros most likely expose the same interface. If you try HeadlessGlow on an untested setup, please [open an issue](https://github.com/OnixBrave/HeadlessGlow/issues) to say whether it works.
 
 ## Installation
+
+### From a release (no Xcode needed)
+
+1. Download the latest `HeadlessGlow-<version>.zip` from the [Releases page](https://github.com/OnixBrave/HeadlessGlow/releases) and open it.
+2. In Terminal: `cd ~/Downloads/HeadlessGlow-<version> && ./install.sh`
+
+The app isn't notarized (that requires a paid Apple Developer account), so `install.sh` removes the quarantine flag from the app it installs; otherwise macOS would refuse to start it. With a release build, macOS asks for the Input Monitoring permission again after each update.
+
+### From source
+
+Requires **Xcode 26** (the macOS 26 SDK gives the app its Tahoe look; the app still runs on macOS 13). It doesn't need to be the selected Xcode: the build script uses `/Applications/Xcode.app` directly.
 
 ```sh
 git clone https://github.com/OnixBrave/HeadlessGlow.git
@@ -57,7 +78,9 @@ cd HeadlessGlow
 ./install.sh               # builds and installs for the current user
 ```
 
-Then allow **HeadlessGlow** in *System Settings → Privacy & Security → Input Monitoring*. This is only needed for the Touch Bar brightness keys: HeadlessGlow listens to them **read-only** and never sees or modifies anything else you type. The app relaunches itself once the permission is granted.
+### Then
+
+Allow **HeadlessGlow** in *System Settings → Privacy & Security → Input Monitoring*. This is only needed for the Touch Bar brightness keys: HeadlessGlow listens to them **read-only** and never sees or modifies anything else you type. The app relaunches itself once the permission is granted.
 
 Everything is installed in your home folder, without `sudo`:
 
@@ -118,7 +141,7 @@ This removes the app, the command, the login service, the settings, the permissi
 
 ## Development
 
-- `./build.sh` builds `build/HeadlessGlow.app`. With `HEADLESSGLOW_DEBUG_BUILD=1`, the build can be inspected with `heap`, `leaks` and `malloc_history`.
+- `./build.sh` builds `build/HeadlessGlow.app`; `./tools/package.sh` makes the release zip in `dist/`. Pushing a `v*` tag builds, tests and publishes a release through GitHub Actions. With `HEADLESSGLOW_DEBUG_BUILD=1`, the build can be inspected with `heap`, `leaks` and `malloc_history`.
 - `./tools/update-strings.sh` syncs the string catalog (`src/app/Localizable.xcstrings`) with the code, like Xcode does, and lists missing French translations.
 - `headlessglow --snapshot <folder>` renders the app's windows to PNG (add `-AppleLanguages '(fr)'` for French).
 - `src/core/kbhw.c` holds the hardware access in C; the app itself is Swift and SwiftUI.
