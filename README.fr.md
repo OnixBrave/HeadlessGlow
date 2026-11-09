@@ -13,7 +13,9 @@ Rétroéclairage du clavier et luminosité de la Touch Bar pour les MacBook Pro 
 [![Étoiles](https://img.shields.io/github/stars/OnixBrave/HeadlessGlow?style=flat-square&logo=github&label=%C3%A9toiles&color=e3b341)](https://github.com/OnixBrave/HeadlessGlow/stargazers)
 [![Don](https://img.shields.io/badge/don-crypto-f7931a?style=flat-square&logo=bitcoin&logoColor=white)](#soutenir-le-projet)
 
-[Télécharger](https://github.com/OnixBrave/HeadlessGlow/releases/latest) · [Installation](#installation) · [Utilisation](#utilisation) · [Soutenir](#soutenir-le-projet) · [English](README.md)
+[Télécharger](https://github.com/OnixBrave/HeadlessGlow/releases/latest) · [Installation](#installation) · [Utilisation](#utilisation) · [Soutenir](#soutenir-le-projet)
+
+[English](README.md) · Français · [Español](README.es.md) · [Deutsch](README.de.md) · [Italiano](README.it.md) · [Português](README.pt-BR.md) · [Русский](README.ru.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md)
 
 <br>
 

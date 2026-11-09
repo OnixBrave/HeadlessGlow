@@ -13,7 +13,9 @@ Keyboard backlight and Touch Bar brightness for T2 MacBook Pros without a displa
 [![Stars](https://img.shields.io/github/stars/OnixBrave/HeadlessGlow?style=flat-square&logo=github&label=stars&color=e3b341)](https://github.com/OnixBrave/HeadlessGlow/stargazers)
 [![Donate](https://img.shields.io/badge/donate-crypto-f7931a?style=flat-square&logo=bitcoin&logoColor=white)](#support)
 
-[Download](https://github.com/OnixBrave/HeadlessGlow/releases/latest) · [Install](#installation) · [Usage](#usage) · [Support](#support) · [Français](README.fr.md)
+[Download](https://github.com/OnixBrave/HeadlessGlow/releases/latest) · [Install](#installation) · [Usage](#usage) · [Support](#support)
+
+English · [Français](README.fr.md) · [Español](README.es.md) · [Deutsch](README.de.md) · [Italiano](README.it.md) · [Português](README.pt-BR.md) · [Русский](README.ru.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md)
 
 <br>
 
