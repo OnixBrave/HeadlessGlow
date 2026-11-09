@@ -155,6 +155,18 @@ This removes the app, the command, the login service, the settings, the permissi
 
 HeadlessGlow uses undocumented hardware interfaces. It has been tested on a single model; use it at your own risk. It is not affiliated with or endorsed by Apple. MacBook Pro, Touch Bar and macOS are trademarks of Apple Inc.
 
+## Support
+
+HeadlessGlow is free and open source. If it brought your keyboard back to life and you'd like to say thanks, donations are welcome:
+
+| Currency | Network | Address |
+|---|---|---|
+| Bitcoin (BTC) | Bitcoin | `bc1qsmpzq2hzruf2lgpexz4wtg0p0c0t8uxujnckfw` |
+| ETH, USDC, USDT | Ethereum, Base, Arbitrum or Optimism | `0x2860E6465E03E714e4eCa092DcaeCCE2CE601D1C` |
+| Litecoin (LTC) | Litecoin | `LeDfGzBNgJGJURon1LCizT9n8LshTThBjD` |
+
+Check the network in your wallet before sending. On Base, Arbitrum or Optimism, fees are a fraction of a cent. Starring the repository and reporting how HeadlessGlow works on your Mac help a lot too.
+
 ## License
 
 [MIT](LICENSE) © 2026 OnixBrave

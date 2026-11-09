@@ -155,6 +155,18 @@ Le script retire l’app, la commande, le service, les réglages, l’autorisati
 
 HeadlessGlow utilise des interfaces matérielles non documentées. Il a été testé sur un seul modèle ; utilisez-le à vos risques. Il n’est ni affilié à Apple ni approuvé par Apple. MacBook Pro, Touch Bar et macOS sont des marques d’Apple Inc.
 
+## Soutenir le projet
+
+HeadlessGlow est gratuit et open source. S’il a rallumé votre clavier et que vous voulez dire merci, les dons sont les bienvenus :
+
+| Monnaie | Réseau | Adresse |
+|---|---|---|
+| Bitcoin (BTC) | Bitcoin | `bc1qsmpzq2hzruf2lgpexz4wtg0p0c0t8uxujnckfw` |
+| ETH, USDC, USDT | Ethereum, Base, Arbitrum ou Optimism | `0x2860E6465E03E714e4eCa092DcaeCCE2CE601D1C` |
+| Litecoin (LTC) | Litecoin | `LeDfGzBNgJGJURon1LCizT9n8LshTThBjD` |
+
+Vérifiez le réseau dans votre portefeuille avant d’envoyer. Sur Base, Arbitrum ou Optimism, les frais coûtent une fraction de centime. Mettre une étoile au dépôt et dire comment HeadlessGlow fonctionne sur votre Mac aide beaucoup aussi.
+
 ## Licence
 
 [MIT](LICENSE) © 2026 OnixBrave

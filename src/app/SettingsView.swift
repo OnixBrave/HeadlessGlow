@@ -142,9 +142,15 @@ struct SettingsView: View {
             } header: {
                 Text("Status")
             } footer: {
-                Text("HeadlessGlow \(AppEnv.version) · drives the T2 controller directly, without modifying the system.")
-                    .foregroundStyle(.tertiary)
-                    .frame(maxWidth: .infinity, alignment: .leading)   // leading on every macOS version
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("HeadlessGlow \(AppEnv.version) · drives the T2 controller directly, without modifying the system.")
+                        .foregroundStyle(.tertiary)
+                    // The link target is localized too: the French README has its own section.
+                    if let url = URL(string: tr("https://github.com/OnixBrave/HeadlessGlow#support")) {
+                        Link("Support HeadlessGlow", destination: url)
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)   // leading on every macOS version
             }
         }
         .formStyle(.grouped)

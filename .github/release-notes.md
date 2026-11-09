@@ -22,6 +22,8 @@ The app isn't notarized (that requires a paid Apple Developer account), so `inst
 
 SHA-256 of the zip: `{{SHA256}}`
 
+Like it? See [Support](https://github.com/OnixBrave/HeadlessGlow#support) for donation addresses.
+
 ---
 
 **Français** : téléchargez le zip, ouvrez-le, puis dans le Terminal : `cd ~/Downloads/HeadlessGlow-{{VERSION}} && ./install.sh`, et autorisez HeadlessGlow dans *Réglages Système → Confidentialité et sécurité → Surveillance de l’entrée*. Détails dans le [README en français](https://github.com/OnixBrave/HeadlessGlow/blob/main/README.fr.md).

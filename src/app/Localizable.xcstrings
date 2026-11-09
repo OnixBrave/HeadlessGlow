@@ -161,6 +161,36 @@
         }
       }
     },
+    "HeadlessGlow": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HeadlessGlow"
+          }
+        }
+      }
+    },
+    "HeadlessGlow %@ · drives the T2 controller directly, without modifying the system.": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HeadlessGlow %@ · pilote directement le contrôleur du T2, sans modifier le système."
+          }
+        }
+      }
+    },
+    "HeadlessGlow Settings…": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réglages de HeadlessGlow…"
+          }
+        }
+      }
+    },
     "Hold ⌥⇧ while tapping a brightness control for finer steps, or ⌥ to open these settings.": {
       "localizations": {
         "fr": {
@@ -461,6 +491,16 @@
         }
       }
     },
+    "Support HeadlessGlow": {
+      "localizations": {
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soutenir HeadlessGlow"
+          }
+        }
+      }
+    },
     "T2 chip": {
       "localizations": {
         "fr": {
@@ -701,32 +741,12 @@
         }
       }
     },
-    "HeadlessGlow": {
+    "https://github.com/OnixBrave/HeadlessGlow#support": {
       "localizations": {
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "HeadlessGlow"
-          }
-        }
-      }
-    },
-    "HeadlessGlow %@ · drives the T2 controller directly, without modifying the system.": {
-      "localizations": {
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "HeadlessGlow %@ · pilote directement le contrôleur du T2, sans modifier le système."
-          }
-        }
-      }
-    },
-    "HeadlessGlow Settings…": {
-      "localizations": {
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Réglages de HeadlessGlow…"
+            "value": "https://github.com/OnixBrave/HeadlessGlow/blob/main/README.fr.md#soutenir-le-projet"
           }
         }
       }
