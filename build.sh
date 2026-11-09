@@ -9,7 +9,7 @@ source "$ROOT/tools/lang.zsh"
 BUILD="$ROOT/build"
 APP="$BUILD/HeadlessGlow.app"
 OBJ="$BUILD/obj"
-VERSION="${HEADLESSGLOW_VERSION:-1.1}"   # set by the release workflow from the git tag
+VERSION="${HEADLESSGLOW_VERSION:-1.2}"   # set by the release workflow from the git tag
 TARGET="x86_64-apple-macos13.0"   # runs on macOS 13 Ventura and later
 
 if [[ -z "${DEVELOPER_DIR:-}" && -d /Applications/Xcode.app ]]; then
@@ -34,7 +34,7 @@ xcrun swiftc -O -swift-version 5 -target "$TARGET" \
     -framework IOKit -framework Carbon \
     -o "$APP/Contents/MacOS/HeadlessGlow"
 
-say "→ traductions (anglais, français)" "→ translations (English, French)"
+say "→ traductions" "→ translations"
 xcrun xcstringstool compile "$ROOT/src/app/Localizable.xcstrings" --output-directory "$APP/Contents/Resources" >/dev/null
 
 say "→ icône" "→ icon"
@@ -60,7 +60,7 @@ cat > "$APP/Contents/Info.plist" <<EOF
     <key>CFBundleShortVersionString</key>   <string>$VERSION</string>
     <key>CFBundleVersion</key>              <string>$VERSION</string>
     <key>CFBundleDevelopmentRegion</key>    <string>en</string>
-    <key>CFBundleLocalizations</key>        <array><string>en</string><string>fr</string></array>
+    <key>CFBundleLocalizations</key>        <array><string>en</string><string>fr</string><string>es</string><string>de</string><string>it</string><string>pt-BR</string><string>ru</string><string>zh-Hans</string><string>ja</string></array>
     <key>LSMinimumSystemVersion</key>       <string>13.0</string>
     <key>LSApplicationCategoryType</key>    <string>public.app-category.utilities</string>
     <key>LSUIElement</key>                  <true/>

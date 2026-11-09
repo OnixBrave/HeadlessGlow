@@ -20,13 +20,13 @@
 <br>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/settings-dark.png">
-  <img src="docs/settings-light.png" width="420" alt="設定ウインドウ">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/ja/settings-dark.png">
+  <img src="docs/ja/settings-light.png" width="420" alt="設定ウインドウ">
 </picture>
 &nbsp;&nbsp;
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/menu-dark.png">
-  <img src="docs/menu-light.png" width="300" alt="メニューバーのパネル">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/ja/menu-dark.png">
+  <img src="docs/ja/menu-light.png" width="300" alt="メニューバーのパネル">
 </picture>
 
 </div>
@@ -142,7 +142,7 @@ Touch Bar の係数は減光にしか使えません。macOS も自分で Touch 
 <br>
 
 - `headlessglow get` で T2 が返す状態を表示します。
-- 設定の *Status* セクションで許可とコントローラの状態を確認でき、ログも開けます。
+- 設定の「状況」セクションで許可とコントローラの状態を確認でき、ログも開けます。
 - 詳細ログ：`defaults write io.github.onixbrave.headlessglow debugLog -bool YES` の後に `headlessglow reload`。
 
 </details>

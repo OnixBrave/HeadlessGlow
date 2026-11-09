@@ -20,13 +20,13 @@ Retroilluminazione della tastiera e luminosità della Touch Bar per MacBook Pro 
 <br>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/settings-dark.png">
-  <img src="docs/settings-light.png" width="420" alt="Finestra delle impostazioni">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/it/settings-dark.png">
+  <img src="docs/it/settings-light.png" width="420" alt="Finestra delle impostazioni">
 </picture>
 &nbsp;&nbsp;
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/menu-dark.png">
-  <img src="docs/menu-light.png" width="300" alt="Pannello della barra dei menu">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/it/menu-dark.png">
+  <img src="docs/it/menu-light.png" width="300" alt="Pannello della barra dei menu">
 </picture>
 
 </div>
@@ -142,7 +142,7 @@ Rimuove l'app, il comando, il servizio di login, le impostazioni, il permesso, i
 <br>
 
 - `headlessglow get` mostra ciò che riporta il T2.
-- La sezione *Status* delle impostazioni mostra il permesso e lo stato dei controller, e apre il log.
+- La sezione *Stato* delle impostazioni mostra il permesso e lo stato dei controller, e apre il log.
 - Log dettagliato: `defaults write io.github.onixbrave.headlessglow debugLog -bool YES`, poi `headlessglow reload`.
 
 </details>

@@ -4,7 +4,7 @@
 
 # HeadlessGlow
 
-为没有屏幕的 T2 MacBook Pro 控制键盘背光和 Touch Bar 亮度。
+为没有屏幕的 T2 MacBook Pro 控制键盘背光和触控栏亮度。
 
 [![Build](https://img.shields.io/github/actions/workflow/status/OnixBrave/HeadlessGlow/build.yml?branch=main&style=flat-square&logo=githubactions&logoColor=white&label=build)](https://github.com/OnixBrave/HeadlessGlow/actions/workflows/build.yml)
 [![Release](https://img.shields.io/github/v/release/OnixBrave/HeadlessGlow?style=flat-square&color=2ea44f&label=release)](https://github.com/OnixBrave/HeadlessGlow/releases/latest)
@@ -20,13 +20,13 @@
 <br>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/settings-dark.png">
-  <img src="docs/settings-light.png" width="420" alt="设置窗口">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/zh-CN/settings-dark.png">
+  <img src="docs/zh-CN/settings-light.png" width="420" alt="设置窗口">
 </picture>
 &nbsp;&nbsp;
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/menu-dark.png">
-  <img src="docs/menu-light.png" width="300" alt="菜单栏面板">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/zh-CN/menu-dark.png">
+  <img src="docs/zh-CN/menu-light.png" width="300" alt="菜单栏面板">
 </picture>
 
 </div>
@@ -38,10 +38,10 @@
 ## 功能
 
 - 登录时打开背光，睡眠唤醒后恢复，显示器睡眠时关闭
-- Touch Bar 亮度键：16 级，<kbd>⌥</kbd><kbd>⇧</kbd> 微调，<kbd>⌥</kbd> 打开设置
+- 触控栏亮度键：16 级，<kbd>⌥</kbd><kbd>⇧</kbd> 微调，<kbd>⌥</kbd> 打开设置
 - 闲置一段时间后关闭，按下按键或移动鼠标时重新点亮
 - 开关快捷键（默认 <kbd>⌃</kbd><kbd>⌥</kbd><kbd>K</kbd>）
-- Touch Bar 调暗，可与键盘亮度联动
+- 触控栏调暗，可与键盘亮度联动
 - 菜单栏面板、设置窗口和屏幕指示器
 - 命令行工具 `headlessglow`
 - 多语言支持
@@ -74,7 +74,7 @@ git clone https://github.com/OnixBrave/HeadlessGlow.git && cd HeadlessGlow
 ./install.sh
 ```
 
-然后在 *系统设置 → 隐私与安全性 → 输入监控* 中允许 HeadlessGlow。只有 Touch Bar 按键需要此权限，且只以监听模式读取。
+然后在 *系统设置 → 隐私与安全性 → 输入监控* 中允许 HeadlessGlow。只有触控栏按键需要此权限，且只以监听模式读取。
 
 > [!NOTE]
 > 本 app 未经公证，因此 `install.sh` 会移除所安装 app 的隔离属性。Release 版本使用 ad hoc 签名：每次更新后 macOS 都会再次请求权限。
@@ -99,7 +99,7 @@ git clone https://github.com/OnixBrave/HeadlessGlow.git && cd HeadlessGlow
 
 ## 使用
 
-使用 Touch Bar 上的键盘亮度控制、菜单栏图标、快捷键或命令行：
+使用触控栏上的键盘亮度控制、菜单栏图标、快捷键或命令行：
 
 ```text
 headlessglow get                  显示状态
@@ -109,7 +109,7 @@ headlessglow touchbar <10-100 | link | unlink>
 headlessglow reload               在 `defaults write` 之后重新读取设置
 ```
 
-如果隐藏了菜单栏图标，可以通过 Spotlight 打开 HeadlessGlow 来进入设置。
+如果隐藏了菜单栏图标，可以通过聚焦（Spotlight）打开 HeadlessGlow 来进入设置。
 
 ## 工作原理
 
@@ -123,9 +123,9 @@ T2 将背光作为设备 `05AC:8102` 的厂商自定义 HID 接口暴露出来�
 |---|---|---|
 | `0xFF00:0x0F`（键盘） | ID 1 | 亮度 `u32`（100…14660），渐变 `u32`（毫秒） |
 | | ID 3 | 电源 `u8`（0/1），渐变 `u32`（毫秒） |
-| `0xFF12:0x01`（Touch Bar） | ID 1 | 状态、调暗级别、亮度系数 `u32`（0…1000） |
+| `0xFF12:0x01`（触控栏） | ID 1 | 状态、调暗级别、亮度系数 `u32`（0…1000） |
 
-Touch Bar 的亮度系数只能用来调暗；macOS 自己调暗 Touch Bar 时也会改写该值，因此 HeadlessGlow 会在每次唤醒后重新应用设置。闲置检测使用 `HIDIdleTime`，亮度键通过只监听的 event tap 读取。
+触控栏的亮度系数只能用来调暗；macOS 自己调暗触控栏时也会改写该值，因此 HeadlessGlow 会在每次唤醒后重新应用设置。闲置检测使用 `HIDIdleTime`，亮度键通过只监听的 event tap 读取。
 
 </details>
 
@@ -142,7 +142,7 @@ Touch Bar 的亮度系数只能用来调暗；macOS 自己调暗 Touch Bar 时�
 <br>
 
 - `headlessglow get` 显示 T2 报告的状态。
-- 设置中的 *Status* 部分显示权限和控制器状态，并可打开日志。
+- 设置中的“状态”部分显示权限和控制器状态，并可打开日志。
 - 详细日志：`defaults write io.github.onixbrave.headlessglow debugLog -bool YES`，然后运行 `headlessglow reload`。
 
 </details>

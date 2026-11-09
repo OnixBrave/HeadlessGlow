@@ -1,7 +1,8 @@
 import Foundation
 
 /// Translations: `Localizable.xcstrings` catalog (English is the source
-/// language, French is translated), compiled into the bundle by build.sh.
+/// language; French, Spanish, German, Italian, Portuguese, Russian, Chinese
+/// and Japanese are translated), compiled into the bundle by build.sh.
 enum L10n {
     /// The app bundle, even when the executable is started through a symlink
     /// (Bundle.main then doesn't point at the .app).

@@ -4,7 +4,7 @@
 
 # HeadlessGlow
 
-Iluminação do teclado e brilho da Touch Bar para MacBook Pro com chip T2 sem tela.
+Retroiluminação do teclado e brilho da Touch Bar para MacBook Pro com chip T2 sem tela.
 
 [![Build](https://img.shields.io/github/actions/workflow/status/OnixBrave/HeadlessGlow/build.yml?branch=main&style=flat-square&logo=githubactions&logoColor=white&label=build)](https://github.com/OnixBrave/HeadlessGlow/actions/workflows/build.yml)
 [![Release](https://img.shields.io/github/v/release/OnixBrave/HeadlessGlow?style=flat-square&color=2ea44f&label=release)](https://github.com/OnixBrave/HeadlessGlow/releases/latest)
@@ -20,24 +20,24 @@ Iluminação do teclado e brilho da Touch Bar para MacBook Pro com chip T2 sem t
 <br>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/settings-dark.png">
-  <img src="docs/settings-light.png" width="420" alt="Janela de ajustes">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/pt-BR/settings-dark.png">
+  <img src="docs/pt-BR/settings-light.png" width="420" alt="Janela de ajustes">
 </picture>
 &nbsp;&nbsp;
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/menu-dark.png">
-  <img src="docs/menu-light.png" width="300" alt="Painel da barra de menus">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/pt-BR/menu-dark.png">
+  <img src="docs/pt-BR/menu-light.png" width="300" alt="Painel da barra de menus">
 </picture>
 
 </div>
 
 ## Por quê
 
-Remover a tela de um MacBook Pro com chip T2 também remove o sensor de luz ambiente, que fica na placa da câmera. O macOS então deixa de controlar a iluminação do teclado: as teclas de brilho não fazem nada e o teclado fica apagado. O HeadlessGlow controla a iluminação diretamente pelo chip T2.
+Remover a tela de um MacBook Pro com chip T2 também remove o sensor de luz ambiente, que fica na placa da câmera. O macOS então deixa de controlar a retroiluminação do teclado: as teclas de brilho não fazem nada e o teclado fica apagado. O HeadlessGlow controla a retroiluminação diretamente pelo chip T2.
 
 ## Recursos
 
-- Iluminação acesa ao iniciar a sessão, restaurada após o repouso e apagada quando a tela entra em repouso
+- Retroiluminação acesa ao iniciar a sessão, restaurada após o repouso e apagada quando a tela entra em repouso
 - Teclas de brilho da Touch Bar: 16 níveis, <kbd>⌥</kbd><kbd>⇧</kbd> para ajustes mais finos, <kbd>⌥</kbd> para abrir os ajustes
 - Apaga após um período de inatividade e acende de novo ao pressionar uma tecla ou mover o mouse
 - Atalho para ligar e desligar (<kbd>⌃</kbd><kbd>⌥</kbd><kbd>K</kbd> por padrão)
@@ -113,7 +113,7 @@ Se você ocultar o ícone da barra de menus, abra o HeadlessGlow pelo Spotlight 
 
 ## Como funciona
 
-O T2 expõe a iluminação como interfaces HID proprietárias do dispositivo `05AC:8102`. O HeadlessGlow envia a elas feature reports, os mesmos usados pelo driver Linux `hid-apple`. Nada é gravado de forma permanente, e não é preciso alterar o SIP, instalar extensões de kernel nem ter acesso de administrador.
+O T2 expõe a retroiluminação como interfaces HID proprietárias do dispositivo `05AC:8102`. O HeadlessGlow envia a elas feature reports, os mesmos usados pelo driver Linux `hid-apple`. Nada é gravado de forma permanente, e não é preciso alterar o SIP, instalar extensões de kernel nem ter acesso de administrador.
 
 <details>
 <summary>Detalhes</summary>
@@ -142,7 +142,7 @@ Remove o app, o comando, o serviço de início de sessão, os ajustes, a permiss
 <br>
 
 - `headlessglow get` mostra o que o T2 informa.
-- A seção *Status* dos ajustes mostra a permissão e o estado dos controladores, e abre o log.
+- A seção *Estado* dos ajustes mostra a permissão e o estado dos controladores, e abre o log.
 - Log detalhado: `defaults write io.github.onixbrave.headlessglow debugLog -bool YES`, depois `headlessglow reload`.
 
 </details>

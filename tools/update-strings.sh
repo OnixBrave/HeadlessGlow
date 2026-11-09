@@ -2,7 +2,8 @@
 # Updates the translation catalog (src/app/Localizable.xcstrings) with the
 # strings used in the code, the way Xcode does it: the Swift compiler
 # extracts them, then xcstringstool merges them. New strings show up
-# untranslated; strings that are no longer used are marked "stale".
+# untranslated in every language (listed at the end); strings that are no
+# longer used are marked "stale".
 # Translations can then be edited in Xcode or directly in the JSON.
 set -euo pipefail
 
@@ -19,10 +20,16 @@ xcrun xcstringstool sync "$ROOT/src/app/Localizable.xcstrings" --stringsdata "$T
 
 python3 -I - "$ROOT/src/app/Localizable.xcstrings" "$KBD_FR" <<'EOF'
 import json, sys
-strings = json.load(open(sys.argv[1], encoding="utf-8"))["strings"]
-todo = [k for k, v in strings.items() if "fr" not in v.get("localizations", {}) and v.get("shouldTranslate", True)]
+catalog = json.load(open(sys.argv[1], encoding="utf-8"))
+strings = catalog["strings"]
 fr = sys.argv[2] == "1"
-print((f"{len(strings)} chaînes, {len(todo)} sans traduction française" if fr
-       else f"{len(strings)} strings, {len(todo)} without a French translation"))
-for key in todo: print("  -", key)
+langs = sorted({l for v in strings.values() for l in v.get("localizations", {})} - {catalog["sourceLanguage"]})
+print(f"{len(strings)} chaînes, langues : {', '.join(langs)}" if fr
+      else f"{len(strings)} strings, languages: {', '.join(langs)}")
+for lang in langs:
+    todo = [k for k, v in strings.items()
+            if lang not in v.get("localizations", {}) and v.get("shouldTranslate", True)]
+    if todo:
+        print(f"{lang} : {len(todo)} sans traduction" if fr else f"{lang}: {len(todo)} untranslated")
+        for key in todo: print("  -", key)
 EOF

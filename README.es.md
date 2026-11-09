@@ -20,13 +20,13 @@ Retroiluminación del teclado y brillo de la Touch Bar para MacBook Pro con chip
 <br>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/settings-dark.png">
-  <img src="docs/settings-light.png" width="420" alt="Ventana de ajustes">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/es/settings-dark.png">
+  <img src="docs/es/settings-light.png" width="420" alt="Ventana de ajustes">
 </picture>
 &nbsp;&nbsp;
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/menu-dark.png">
-  <img src="docs/menu-light.png" width="300" alt="Panel de la barra de menús">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/es/menu-dark.png">
+  <img src="docs/es/menu-light.png" width="300" alt="Panel de la barra de menús">
 </picture>
 
 </div>
@@ -142,7 +142,7 @@ Elimina la app, el comando, el servicio de inicio de sesión, los ajustes, el pe
 <br>
 
 - `headlessglow get` muestra lo que informa el T2.
-- La sección *Status* de los ajustes muestra el permiso y el estado de los controladores, y abre el registro.
+- La sección *Estado* de los ajustes muestra el permiso y el estado de los controladores, y abre el registro.
 - Registro detallado: `defaults write io.github.onixbrave.headlessglow debugLog -bool YES` y luego `headlessglow reload`.
 
 </details>

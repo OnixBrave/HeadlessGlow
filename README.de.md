@@ -20,13 +20,13 @@ Tastaturbeleuchtung und Touch-Bar-Helligkeit für MacBook Pro mit T2-Chip ohne D
 <br>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/settings-dark.png">
-  <img src="docs/settings-light.png" width="420" alt="Einstellungsfenster">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/de/settings-dark.png">
+  <img src="docs/de/settings-light.png" width="420" alt="Einstellungsfenster">
 </picture>
 &nbsp;&nbsp;
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/menu-dark.png">
-  <img src="docs/menu-light.png" width="300" alt="Menüleistenfenster">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/de/menu-dark.png">
+  <img src="docs/de/menu-light.png" width="300" alt="Menüleistenfenster">
 </picture>
 
 </div>

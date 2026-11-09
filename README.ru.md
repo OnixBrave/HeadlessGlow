@@ -20,13 +20,13 @@
 <br>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/settings-dark.png">
-  <img src="docs/settings-light.png" width="420" alt="Окно настроек">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/ru/settings-dark.png">
+  <img src="docs/ru/settings-light.png" width="420" alt="Окно настроек">
 </picture>
 &nbsp;&nbsp;
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/menu-dark.png">
-  <img src="docs/menu-light.png" width="300" alt="Панель в строке меню">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/ru/menu-dark.png">
+  <img src="docs/ru/menu-light.png" width="300" alt="Панель в строке меню">
 </picture>
 
 </div>
@@ -142,7 +142,7 @@ T2 представляет подсветку как проприетарные
 <br>
 
 - `headlessglow get` показывает, что сообщает T2.
-- Раздел *Status* в настройках показывает разрешение и состояние контроллеров и открывает журнал.
+- Раздел *Состояние* в настройках показывает разрешение и состояние контроллеров и открывает журнал.
 - Подробный журнал: `defaults write io.github.onixbrave.headlessglow debugLog -bool YES`, затем `headlessglow reload`.
 
 </details>
