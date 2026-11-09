@@ -53,8 +53,8 @@ An **Intel MacBook Pro with a T2 chip** (2018–2020) running **macOS 13 Ventura
 | macOS | Status |
 |---|---|
 | 26 Tahoe | Tested on real hardware (MacBookPro16,1, 16-inch 2019) |
-| 15 Sequoia, 14 Sonoma | [Automated launch tests](https://github.com/OnixBrave/HeadlessGlow/actions/workflows/build.yml) pass; not yet tested on real hardware |
-| 13 Ventura | Builds for it; not tested |
+| 15 Sequoia | [Automated launch tests](https://github.com/OnixBrave/HeadlessGlow/actions/workflows/build.yml) pass; not yet tested on real hardware |
+| 14 Sonoma, 13 Ventura | Builds for it; not tested |
 
 Other T2 MacBook Pros most likely expose the same interface. If you try HeadlessGlow on an untested setup, please [open an issue](https://github.com/OnixBrave/HeadlessGlow/issues) to say whether it works.
 

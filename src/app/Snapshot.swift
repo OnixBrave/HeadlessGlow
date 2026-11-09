@@ -34,20 +34,36 @@ enum Snapshot {
         window.orderFrontRegardless()
         RunLoop.current.run(until: Date().addingTimeInterval(0.8))
 
-        var image: CGImage?
-        // CGWindowListCreateImage (real composited rendering) is no longer exposed by the SDK: call it dynamically.
-        typealias CreateImage = @convention(c) (CGRect, UInt32, UInt32, UInt32) -> Unmanaged<CGImage>?
-        if let symbol = dlsym(UnsafeMutableRawPointer(bitPattern: -2), "CGWindowListCreateImage") {
-            let create = unsafeBitCast(symbol, to: CreateImage.self)
-            image = create(.null, 1 << 3, UInt32(window.windowNumber), (1 << 0) | (1 << 3))?.takeRetainedValue()
-        }
-        if image == nil, let rep = host.bitmapImageRepForCachingDisplay(in: host.bounds) {
-            host.cacheDisplay(in: host.bounds, to: rep)
-            image = rep.cgImage
+        var image = compositedImage(of: window.windowNumber)
+        if image == nil {
+            // AppKit's own rendering: layout only (SwiftUI forms may come out blank).
+            FileHandle.standardError.write(Data("snapshot: composited capture unavailable, using AppKit rendering\n".utf8))
+            if let rep = host.bitmapImageRepForCachingDisplay(in: host.bounds) {
+                host.cacheDisplay(in: host.bounds, to: rep)
+                image = rep.cgImage
+            }
         }
         if let image {
             try? NSBitmapImageRep(cgImage: image).representation(using: .png, properties: [:])?.write(to: url)
         }
         window.orderOut(nil)
+    }
+
+    /// Real composited rendering of one of our own windows. CGWindowListCreateImage
+    /// is no longer exposed by the SDK, so it is called dynamically; it can block
+    /// (e.g. waiting for a screen recording permission in a CI virtual machine),
+    /// so it runs on a background thread and is abandoned after 5 seconds.
+    private static func compositedImage(of windowNumber: Int) -> CGImage? {
+        typealias CreateImage = @convention(c) (CGRect, UInt32, UInt32, UInt32) -> Unmanaged<CGImage>?
+        guard let symbol = dlsym(UnsafeMutableRawPointer(bitPattern: -2), "CGWindowListCreateImage") else { return nil }
+        let create = unsafeBitCast(symbol, to: CreateImage.self)
+        final class Box: @unchecked Sendable { var image: CGImage? }
+        let box = Box()
+        let done = DispatchSemaphore(value: 0)
+        DispatchQueue.global().async {
+            box.image = create(.null, 1 << 3, UInt32(windowNumber), (1 << 0) | (1 << 3))?.takeRetainedValue()
+            done.signal()
+        }
+        return done.wait(timeout: .now() + 5) == .success ? box.image : nil
     }
 }

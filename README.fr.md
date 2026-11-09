@@ -53,8 +53,8 @@ Un **MacBook Pro Intel à puce T2** (2018–2020) sous **macOS 13 Ventura ou plu
 | macOS | État |
 |---|---|
 | 26 Tahoe | Testé sur un vrai Mac (MacBookPro16,1, 16 pouces 2019) |
-| 15 Sequoia, 14 Sonoma | [Tests de lancement automatiques](https://github.com/OnixBrave/HeadlessGlow/actions/workflows/build.yml) réussis ; pas encore testé sur un vrai Mac |
-| 13 Ventura | Compilé pour lui ; non testé |
+| 15 Sequoia | [Tests de lancement automatiques](https://github.com/OnixBrave/HeadlessGlow/actions/workflows/build.yml) réussis ; pas encore testé sur un vrai Mac |
+| 14 Sonoma, 13 Ventura | Compilé pour eux ; non testé |
 
 Les autres MacBook Pro T2 exposent très probablement la même interface. Si vous essayez HeadlessGlow sur une configuration non testée, merci d’[ouvrir une issue](https://github.com/OnixBrave/HeadlessGlow/issues) pour dire si ça fonctionne.
 

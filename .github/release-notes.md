@@ -7,8 +7,8 @@ Intel MacBook Pro with a T2 chip (2018–2020), macOS 13 Ventura or later.
 | macOS | Status |
 |---|---|
 | 26 Tahoe | Tested on real hardware (MacBookPro16,1) |
-| 15 Sequoia, 14 Sonoma | Automated launch tests pass; not yet tested on real hardware |
-| 13 Ventura | Builds for it; not tested |
+| 15 Sequoia | Automated launch tests pass; not yet tested on real hardware |
+| 14 Sonoma, 13 Ventura | Builds for it; not tested |
 
 If you run it on an untested setup, please [open an issue](https://github.com/OnixBrave/HeadlessGlow/issues) to say whether it works.
 

@@ -1,8 +1,8 @@
 name: Build
 
-# Builds the app with Xcode 26, smoke-tests it on every macOS version GitHub
-# offers on Intel (the architecture of T2 Macs), and publishes a release when a
-# version tag (v1.0, v1.1…) is pushed. The virtual machines have no T2 chip, so
+# Builds the app with Xcode 26, smoke-tests it on the macOS versions GitHub offers
+# on free Intel runners (the architecture of T2 Macs: macOS 15 and 26), and
+# publishes a release when a version tag (v1.0, v1.1…) is pushed. The virtual machines have no T2 chip, so
 # the tests check that the app launches and behaves correctly without it; the
 # hardware itself can only be tested on a real Mac.
 
@@ -21,7 +21,7 @@ jobs:
     name: Build (Xcode 26)
     runs-on: macos-26-intel
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Toolchain
         run: |
@@ -38,7 +38,7 @@ jobs:
           fi
           ./tools/package.sh
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: package
           path: dist/*.zip
@@ -50,12 +50,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macos-14, macos-15-intel, macos-26-intel]
+        os: [macos-15-intel, macos-26-intel]
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: package
+          path: .
 
       - name: Unpack
         run: ditto -x -k HeadlessGlow-*.zip .
@@ -64,6 +66,8 @@ jobs:
         run: |
           set -euo pipefail
           sw_vers
+          # Runs a command with a time limit, so a hang fails fast instead of stalling the job.
+          limit() { perl -e 'alarm shift; exec @ARGV' "$@"; }
           APP=$(echo HeadlessGlow-*/HeadlessGlow.app)
           BIN="$APP/Contents/MacOS/HeadlessGlow"
 
@@ -73,10 +77,10 @@ jobs:
           echo "::endgroup::"
 
           echo "::group::Command line"
-          "$BIN" help | tee help.txt
+          limit 30 "$BIN" help | tee help.txt
           grep -q "usage: headlessglow" help.txt
           # No T2 chip in a virtual machine: `get` must fail cleanly.
-          if "$BIN" get 2> get.txt; then echo "get unexpectedly succeeded"; exit 1; fi
+          if limit 30 "$BIN" get 2> get.txt; then echo "get unexpectedly succeeded"; exit 1; fi
           cat get.txt
           grep -q "not found" get.txt
           echo "::endgroup::"
@@ -87,16 +91,19 @@ jobs:
           sleep 8
           kill -0 "$PID"
           kill -TERM "$PID"
-          wait "$PID" || true
+          for _ in 1 2 3 4 5 6 7 8 9 10; do kill -0 "$PID" 2>/dev/null || break; sleep 1; done
+          if kill -0 "$PID" 2>/dev/null; then echo "service ignored SIGTERM"; kill -KILL "$PID"; exit 1; fi
           echo "::endgroup::"
 
-          echo "::group::UI screenshots"
-          "$BIN" --snapshot shots/en -AppleLanguages '(en)' -AppleLocale en_US
-          "$BIN" --snapshot shots/fr -AppleLanguages '(fr)' -AppleLocale fr_FR
-          ls -la shots/en shots/fr
+          echo "::group::UI screenshots (best effort: a VM may not allow window capture)"
+          limit 120 "$BIN" --snapshot shots/en -AppleLanguages '(en)' -AppleLocale en_US \
+            || echo "::warning::English screenshots failed"
+          limit 120 "$BIN" --snapshot shots/fr -AppleLanguages '(fr)' -AppleLocale fr_FR \
+            || echo "::warning::French screenshots failed"
+          ls -la shots/en shots/fr 2>/dev/null || true
           echo "::endgroup::"
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: screenshots-${{ matrix.os }}
@@ -111,11 +118,12 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: package
+          path: .
 
       - name: Publish
         env:
